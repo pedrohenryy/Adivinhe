@@ -2,7 +2,7 @@ from colorama import *
 from random import randint
 from time import sleep
 import sys
-import os 
+import os
 
 # Definindo funções
 	
