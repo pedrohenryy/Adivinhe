@@ -2,7 +2,7 @@ from colorama import *
 from random import randint
 from time import sleep
 import sys
-import os
+import os 
 
 # Definindo funções
 	
@@ -13,12 +13,12 @@ def restart_program():
 def limpar_terminal():
 	os.system('cls' if os.name == 'nt' else 'clear')
 	
-def espaço():
+def espaco():
 	print(' '  *30 )
 
 # Título
 
-espaço()
+espaco()
 print(Fore.CYAN + '\t ADIVINHE ')
 print(Fore.CYAN + '_'  *30)
 print(' ' *30)
@@ -27,9 +27,9 @@ print(' ' *30)
 
 print(Fore.WHITE + 'Vou pensar em um número de 1 a 100, tente adivinhar... ')
 print(Fore.WHITE + 'Você tem 7 tentativas: ')
-espaço()
+espaco()
 print(Fore.CYAN + 'PROCESSANDO... ')
-espaço()
+espaco()
 
 # Gerador de informações
 
@@ -42,26 +42,26 @@ palpite = None
 while palpite != número_aleatório:
 	sleep( 0.5 )
 	palpite = int(input(Fore.WHITE + Style.NORMAL + 'Digite seu palpite: '))
-	espaço()
+	espaco()
 	tentativas = tentativas + 1
 	
 # Caso acerte
 	
 	if palpite == número_aleatório:
-		espaço()
+		espaco()
 		print(Fore.GREEN + Style.BRIGHT + 'PARABÉNS!  Você me venceu em {} tentativas '.format( tentativas ))
 		print(Fore.CYAN + Style.NORMAL + '_' *30)
 		sleep( 0.6 )
-		espaço()
+		espaco()
 		break;
 		
 # Tentativas
 		
 	elif tentativas >= 7 and palpite != número_aleatório:
-		espaço()
+		espaco()
 		print(Fore.RED + Style.BRIGHT + 'Suas chances foram excedidas!! ')
 		print(Fore.CYAN + Style.NORMAL + '_'  *30)
-		espaço()
+		espaco()
 		sleep( 0.6 )
 		break;
 	
@@ -77,7 +77,7 @@ while palpite != número_aleatório:
 while True:
 						if palpite == número_aleatório or tentativas >=3:
 							inicializacao = input(Fore.WHITE + Style.NORMAL + 'Deseja reinicar o jogo ? ')
-							espaço()
+							espaco()
 							
 						if inicializacao == 'n' or inicializacao == 'não':
 							print(Fore.CYAN + 'Obrigado por jogar! ')
