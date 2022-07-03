@@ -1,4 +1,3 @@
-from ctypes.wintypes import PINT
 from colorama import *
 from random import randint
 from time import sleep
