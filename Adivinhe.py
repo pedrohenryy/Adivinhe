@@ -1,8 +1,7 @@
-from colorama import *
 from random import randint
-from time import sleep
 import sys
-import os 
+import os
+from time import sleep
 
 # Definindo funções
 	
@@ -15,79 +14,75 @@ def limpar_terminal():
 	
 def espaco():
 	print(' '  *30 )
-
+	
 # Título
 
 espaco()
-print(Fore.CYAN + '\t ADIVINHE ')
-print(Fore.CYAN + '_'  *30)
-print(' ' *30)
+print('\033[36m \t ADIVINHE ')
+espaco()
 
 # Introdução
 
-print(Fore.WHITE + 'Vou pensar em um número de 1 a 100, tente adivinhar... ')
-print(Fore.WHITE + 'Você tem 7 tentativas: ')
-espaco()
-print(Fore.CYAN + 'PROCESSANDO... ')
-espaco()
+print('\033[97m Vou pensar em um número de 1 a 100. tente adivinhar...')
+print('\033[97m Você tem 7 tentativas:')
+print()
+print('\033[36m PROCESSANDO...')
+print()
 
 # Gerador de informações
 
-número_aleatório = randint( 1,100 )
+numero_aleatorio = randint(1, 5)
 tentativas = 0
 palpite = None
 
 # Função principal
 
-while palpite != número_aleatório:
-	sleep( 0.5 )
-	palpite = int(input(Fore.WHITE + Style.NORMAL + 'Digite seu palpite: '))
-	espaco()
+while palpite != numero_aleatorio:
+	sleep(0.5)
+	palpite = int(input('\033[0;37m Digite seu palpite: '))
 	tentativas = tentativas + 1
 	
 # Caso acerte
 	
-	if palpite == número_aleatório:
+	if palpite == numero_aleatorio:
 		espaco()
-		print(Fore.GREEN + Style.BRIGHT + 'PARABÉNS!  Você me venceu em {} tentativas '.format( tentativas ))
-		print(Fore.CYAN + Style.NORMAL + '_' *30)
-		sleep( 0.6 )
+		print('\033[1;32m PARABÉNS!  Você me venceu em {} tentativas'.format( tentativas ))
+		sleep(0.6)
 		espaco()
 		break;
 		
 # Tentativas
 		
-	elif tentativas >= 7 and palpite != número_aleatório:
+	elif tentativas >= 3 and palpite != numero_aleatorio:
 		espaco()
-		print(Fore.RED + Style.BRIGHT + 'Suas chances foram excedidas!! ')
-		print(Fore.CYAN + Style.NORMAL + '_'  *30)
-		espaco()
-		sleep( 0.6 )
+		print('\033[1;31m Suas chances foram excedidas!!')
+		print( )
+		sleep(0.6)
 		break;
 	
 # Chutes
 		
-	elif palpite > número_aleatório:
-		print(Fore.RED + Style.BRIGHT + 'Hmm... Chutou alto demais!! tente novamente: ')
-	elif palpite < número_aleatório:
-		print(Fore.RED + Style.BRIGHT + 'Chute baixo! Tente denovo: ')
+	elif palpite > numero_aleatorio:
+		print('\033[1;31m Hmm... Chutou alto demais!! tente novamente: ')
+	elif palpite < numero_aleatorio:
+		print('\033[1;31m Chute baixo! Tente denovo: ')
 		
 # Finalização
 		
 while True:
-						if palpite == número_aleatório or tentativas >=3:
-							inicializacao = input(Fore.WHITE + Style.NORMAL + 'Deseja reinicar o jogo ? ')
+						if palpite == numero_aleatorio or tentativas >=3:
+							inicializacao = input('\033[0;36m Deseja reinicar o jogo ? ').lower()
 							espaco()
 							
 						if inicializacao == 'n' or inicializacao == 'não':
-							print(Fore.CYAN + 'Obrigado por jogar! ')
+							print('\033[36m Obrigado por jogar!')
 							break;
 							
 # Reinicialização					
 						
 						elif inicializacao == 's' or inicializacao == 'sim':
 							
-							print(Fore.CYAN + 'REINICIANDO JOGO... ')
-							sleep( 0.7 )
+							print('\033[36m REINICIANDO JOGO...')
+							sleep(0.7)
 							limpar_terminal()
-							restart_program()
+							restart_program(
